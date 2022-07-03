@@ -1,26 +1,20 @@
-export const transform = (person) => {
-  // if (typeof person.instruments !== 'object') {
-  // person.instruments = person.instruments?.length
-  //   ? person.instruments.split(',')
-  //   : [];
-  // } else {
-  person.instruments = person.instruments?.length
-    ? person.instruments.join(', ')
-    : '';
-  person.id = person._id;
-  // delete person._id;
-  // }
-  return person;
+export const transform = (item) => {
+  if (Array.isArray(item.instruments)) {
+    item.instruments = item.instruments?.length ? item.instruments.join(', ') : null;
+  }
+  item.id = item._id;
+
+  return item;
 };
 
-export const getFromIdsArray = async (idsArray: string[], api, getItem) => {
+export const getFromIdsArray = async (idsArray: string[], api, getItem: string) => {
   let res;
-  if (idsArray[0]) {
-    res = await Promise.all(idsArray.map((id: string) => api[getItem](id)));
-    return res.map((id) => transform(id));
-  }
 
-  return res || [];
+  if (idsArray?.length) {
+    res = await Promise.all(idsArray.map((id: string) => api[getItem](id)));
+    res.map((id) => transform(id));
+  }
+  return res || null;
 };
 
 export const deleteMessage = {

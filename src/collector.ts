@@ -12,26 +12,24 @@ export { UserAPI } from './modules/users/services/user-api';
 export { ArtistAPI } from './modules/artists/services/artist-api';
 export { BandAPI } from './modules/bands/services/band-api';
 export { GenreAPI } from './modules/genres/services/genre-api';
+export { TrackAPI } from './modules/tracks/services/track-api';
+export { AlbumAPI } from './modules/albums/services/album-api';
 
 import { userResolvers } from './modules/users/resolvers/user-resolvers';
 import { artistResolvers } from './modules/artists/resolvers/artist-resolvers';
 import { bandResolvers } from './modules/bands/resolvers/band-resolvers';
 import { genreResolvers } from './modules/genres/resolvers/genre-resolvers';
+import { trackResolvers } from './modules/tracks/resolvers/track-resolvers';
+import { albumResolvers } from './modules/albums/resolvers/album-resolvers';
 
-export const typeDefs: DocumentNode[] = [
-  user,
-  artist,
-  band,
-  genre,
-  favourites,
-  album,
-  track,
-];
+export const typeDefs: DocumentNode[] = [user, artist, band, genre, favourites, album, track];
 
 export const resolvers = merge(
   {},
   userResolvers,
   artistResolvers,
   bandResolvers,
-  genreResolvers
+  genreResolvers,
+  trackResolvers,
+  albumResolvers
 );

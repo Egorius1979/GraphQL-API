@@ -13,16 +13,33 @@ export const album: DocumentNode = gql`
     image: String
   }
 
-  # type Query {
-  #   artists: [Artist]
-  #   artist(id: ID!): Artist
-  # }
+  type Query {
+    albums: [Album]
+    album(id: ID!): Album
+  }
 
-  # type Mutation {
-  #   createArtist(
-  #     firstName: String!
-  #     secondName: String!
-  #     country: String!
-  #   ): Artist
-  # }
+  type Mutation {
+    createAlbum(
+      name: String!
+      released: Int
+      artistsIds: [ID!]
+      bandsIds: [ID!]
+      trackIds: [ID!]
+      genresIds: [ID!]
+      image: String
+    ): Album!
+
+    updateAlbum(
+      id: ID!
+      name: String
+      released: Int
+      artistsIds: [ID!]
+      bandsIds: [ID!]
+      trackIds: [ID!]
+      genresIds: [ID!]
+      image: String
+    ): Album!
+
+    deleteAlbum(id: ID!): DeleteResponse!
+  }
 `;

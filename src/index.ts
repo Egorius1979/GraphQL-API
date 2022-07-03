@@ -11,6 +11,8 @@ import {
   ArtistAPI,
   BandAPI,
   GenreAPI,
+  TrackAPI,
+  AlbumAPI,
 } from './collector';
 
 async function startApolloServer() {
@@ -33,6 +35,8 @@ async function startApolloServer() {
         artistAPI: new ArtistAPI(),
         bandAPI: new BandAPI(),
         genreAPI: new GenreAPI(),
+        trackAPI: new TrackAPI(),
+        albumAPI: new AlbumAPI(),
       };
     },
   });
@@ -41,9 +45,7 @@ async function startApolloServer() {
   server.applyMiddleware({ app });
   await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
 
-  console.log(
-    `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`
-  );
+  console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
 }
 
 startApolloServer();

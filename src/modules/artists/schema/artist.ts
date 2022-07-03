@@ -19,21 +19,6 @@ export const artist: DocumentNode = gql`
     artists: [Artist]
   }
 
-  # input BandInput {
-  #   id: ID!
-  # }
-
-  # input ArtistInput {
-  #   firstName: String!
-  #   secondName: String!
-  #   middleName: String
-  #   birthDate: String
-  #   birthPlace: String
-  #   country: String!
-  #   bands: [BandInput]
-  #   instruments: [String]
-  # }
-
   type DeleteResponse {
     acknowledged: Boolean!
     deletedCount: Int!
@@ -48,7 +33,7 @@ export const artist: DocumentNode = gql`
       birthPlace: String
       country: String!
       bandsIds: [ID!]
-      instruments: [String] # artistInput: ArtistInput
+      instruments: [String]
     ): Artist!
 
     updateArtist(
@@ -60,7 +45,7 @@ export const artist: DocumentNode = gql`
       birthPlace: String
       country: String
       bandsIds: [ID!]
-      instruments: [String] # updateArtist: ArtistInput
+      instruments: [String]
     ): Artist!
 
     deleteArtist(id: ID!): DeleteResponse!

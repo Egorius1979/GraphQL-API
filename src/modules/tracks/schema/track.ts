@@ -12,16 +12,31 @@ export const track: DocumentNode = gql`
     genres: [Genre]
   }
 
-  # type Query {
-  #   artists: [Artist]
-  #   artist(id: ID!): Artist
-  # }
+  type Query {
+    tracks: [Track]
+    track(id: ID!): Track
+  }
 
-  # type Mutation {
-  #   createArtist(
-  #     firstName: String!
-  #     secondName: String!
-  #     country: String!
-  #   ): Artist
-  # }
+  type Mutation {
+    createTrack(
+      title: String!
+      albumId: ID
+      bandsIds: [ID!]
+      duration: Int
+      released: Int
+      genresIds: [ID!]
+    ): Track!
+
+    updateTrack(
+      id: ID!
+      title: String
+      albumId: ID
+      bandsIds: [ID!]
+      duration: Int
+      released: Int
+      genresIds: [ID!]
+    ): Track!
+
+    deleteTrack(id: ID!): DeleteResponse!
+  }
 `;
