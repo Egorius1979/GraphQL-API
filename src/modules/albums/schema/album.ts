@@ -40,6 +40,6 @@ export const album: DocumentNode = gql`
       image: String
     ): Album!
 
-    deleteAlbum(id: ID!): DeleteResponse!
+    deleteAlbum(id: ID!): Delete!
   }
 `;

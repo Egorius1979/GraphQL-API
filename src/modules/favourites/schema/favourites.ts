@@ -11,16 +11,17 @@ export const favourites: DocumentNode = gql`
     tracks: [Track]
   }
 
-  # type Query {
-  #   artists: [Artist]
-  #   artist(id: ID!): Artist
-  # }
+  type Query {
+    favorites: Favourites
+  }
 
-  # type Mutation {
-  #   createArtist(
-  #     firstName: String!
-  #     secondName: String!
-  #     country: String!
-  #   ): Artist
-  # }
+  type Mutation {
+    addTrackToFavourites(type: String!, id: ID!): Favourites!
+
+    addBandToFavourites(type: String!, id: ID!): Favourites!
+
+    addArtistToFavourites(type: String!, id: ID!): Favourites!
+
+    addGenreToFavourites(type: String!, id: ID!): Favourites!
+  }
 `;

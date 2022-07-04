@@ -22,7 +22,7 @@ export const getFromIdsArray = async (idsArray: string[], api, getItem: string) 
     res = res.filter((it) => it);
     res.length ? res.map((item) => transform(item)) : null;
   }
-  return res || null;
+  return res;
 };
 
 export const deleteMessage = {

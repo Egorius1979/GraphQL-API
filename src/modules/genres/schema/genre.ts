@@ -16,21 +16,10 @@ export const genre: DocumentNode = gql`
   }
 
   type Mutation {
-    createGenre(
-      name: String!
-      description: String
-      country: String
-      year: Int
-    ): Genre!
+    createGenre(name: String!, description: String, country: String, year: Int): Genre!
 
-    updateGenre(
-      id: ID!
-      name: String
-      description: String
-      country: String
-      year: Int
-    ): Genre!
+    updateGenre(id: ID!, name: String, description: String, country: String, year: Int): Genre!
 
-    deleteGenre(id: ID!): DeleteResponse!
+    deleteGenre(id: ID!): Delete!
   }
 `;

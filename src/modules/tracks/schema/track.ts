@@ -37,6 +37,6 @@ export const track: DocumentNode = gql`
       genresIds: [ID!]
     ): Track!
 
-    deleteTrack(id: ID!): DeleteResponse!
+    deleteTrack(id: ID!): Delete!
   }
 `;

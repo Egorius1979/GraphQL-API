@@ -19,7 +19,7 @@ export const artist: DocumentNode = gql`
     artists: [Artist]
   }
 
-  type DeleteResponse {
+  type Delete {
     acknowledged: Boolean!
     deletedCount: Int!
   }
@@ -48,6 +48,6 @@ export const artist: DocumentNode = gql`
       instruments: [String]
     ): Artist!
 
-    deleteArtist(id: ID!): DeleteResponse!
+    deleteArtist(id: ID!): Delete!
   }
 `;

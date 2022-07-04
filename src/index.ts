@@ -13,6 +13,7 @@ import {
   GenreAPI,
   TrackAPI,
   AlbumAPI,
+  FavouriteAPI,
 } from './collector';
 
 async function startApolloServer() {
@@ -37,6 +38,7 @@ async function startApolloServer() {
         genreAPI: new GenreAPI(),
         trackAPI: new TrackAPI(),
         albumAPI: new AlbumAPI(),
+        favouriteAPI: new FavouriteAPI(),
       };
     },
   });

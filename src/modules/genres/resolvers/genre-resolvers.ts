@@ -9,8 +9,6 @@ export const genreResolvers = {
     },
     genres: async (_, __, { dataSources }): Promise<IGenre[]> => {
       const { items: res } = await dataSources.genreAPI.getAllGenres();
-      console.log(res);
-
       return res.map((it: IGenre) => transform(it));
     },
   },

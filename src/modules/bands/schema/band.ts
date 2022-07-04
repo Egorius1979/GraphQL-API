@@ -28,10 +28,6 @@ export const band: DocumentNode = gql`
     years: [String]
   }
 
-  # input GenreInput {
-  #   id: ID!
-  # }
-
   type Mutation {
     createBand(
       name: String!
@@ -50,6 +46,6 @@ export const band: DocumentNode = gql`
       genresIds: [ID!]
     ): Band!
 
-    deleteBand(id: ID!): DeleteResponse!
+    deleteBand(id: ID!): Delete!
   }
 `;
