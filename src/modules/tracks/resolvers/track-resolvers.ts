@@ -23,6 +23,7 @@ export const trackResolvers = {
       return getFromIdsArray(genresIds, dataSources.genreAPI, 'getGenre');
     },
   },
+
   Mutation: {
     createTrack: async (_, track: ITrack, { dataSources }): Promise<ITrack> => {
       const res = await dataSources.trackAPI.createTrack(track);

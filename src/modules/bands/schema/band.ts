@@ -38,7 +38,7 @@ export const band: DocumentNode = gql`
       origin: String
       members: [MemberInput]
       website: String
-      genres: [ID!]
+      genresIds: [ID!]
     ): Band!
 
     updateBand(
@@ -47,7 +47,7 @@ export const band: DocumentNode = gql`
       origin: String
       members: [MemberInput]
       website: String
-      genres: [ID!]
+      genresIds: [ID!]
     ): Band!
 
     deleteBand(id: ID!): DeleteResponse!

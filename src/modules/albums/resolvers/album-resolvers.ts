@@ -19,8 +19,8 @@ export const albumResolvers = {
     bands: ({ bandsIds }, __, { dataSources }) => {
       return getFromIdsArray(bandsIds, dataSources.bandAPI, 'getBand');
     },
-    tracks: ({ tracksIds }, __, { dataSources }) => {
-      return getFromIdsArray(tracksIds, dataSources.trackAPI, 'getTrack');
+    tracks: ({ trackIds }, __, { dataSources }) => {
+      return getFromIdsArray(trackIds, dataSources.trackAPI, 'getTrack');
     },
     genres: ({ genresIds }, __, { dataSources }) => {
       return getFromIdsArray(genresIds, dataSources.genreAPI, 'getGenre');
