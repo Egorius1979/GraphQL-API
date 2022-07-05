@@ -40,22 +40,6 @@ export const setQuery = (offset, limit) => {
   return offset || limit ? { offset, limit } : null;
 };
 
-// export const paginate = (res) => {
-//   console.log(res.items);
-//   const offset = res.offset;
-//   const limit = res.limit;
-//   const total = res.total;
-//   const result = res.items.map((it) => transform(it));
-//   console.log();
-
-//   return {
-//     artists: result,
-//     offset,
-//     limit,
-//     total,
-//   };
-// };
-
 export const deleteMessage = {
   acknowledged: true,
   deletedCount: 1,
