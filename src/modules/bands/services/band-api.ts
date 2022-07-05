@@ -12,8 +12,8 @@ export class BandAPI extends RESTDataSource {
   async getBand(bandId: string) {
     return this.get(`/${bandId}`);
   }
-  async getAllBands() {
-    return this.get('');
+  async getAllBands(query) {
+    return this.get('', query);
   }
   async createBand(band: IBand) {
     return this.post('', band);

@@ -11,12 +11,12 @@ export const artist: DocumentNode = gql`
     birthPlace: String
     country: String
     bands: [Band]
-    instruments: String
+    instruments: [String]
   }
 
   type Query {
     artist(id: ID!): Artist
-    artists: [Artist]
+    artists(offset: Int, limit: Int): [Artist]
   }
 
   type Delete {

@@ -1,9 +1,10 @@
 export interface IFavourite {
   id: string;
-  name: string;
-  description: string;
-  country: string;
-  year: string;
+  userId: string;
+  bandsIds: string[];
+  genresIds: string[];
+  artistsIds: string[];
+  tracksIds: string[];
 }
 
 export interface IBody {

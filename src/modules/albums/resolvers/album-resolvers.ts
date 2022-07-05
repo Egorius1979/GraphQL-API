@@ -1,5 +1,5 @@
+import { transform, getFromIdsArray, deleteMessage, setQuery } from '../../../common-handlers';
 import { IAlbum } from '../services/album-type';
-import { transform, getFromIdsArray, deleteMessage } from '../../../common-handlers';
 
 export const albumResolvers = {
   Query: {
@@ -7,22 +7,25 @@ export const albumResolvers = {
       const res = await dataSources.albumAPI.getAlbum(id);
       return transform(res);
     },
-    albums: async (_, __, { dataSources }): Promise<IAlbum[]> => {
-      const { items: res } = await dataSources.albumAPI.getAllAlbums();
-      return res.map((it: IAlbum) => transform(it));
+    albums: async (_, { offset, limit }, { dataSources }): Promise<IAlbum[]> => {
+      try {
+        const query = setQuery(offset, limit);
+        const { items } = await dataSources.albumAPI.getAllAlbums(query);
+        return items.map((it: IAlbum) => transform(it));
+      } catch {}
     },
   },
   Album: {
-    artists: ({ artistsIds }, __, { dataSources }) => {
+    artists: ({ artistsIds }: IAlbum, __, { dataSources }) => {
       return getFromIdsArray(artistsIds, dataSources.artistAPI, 'getArtist');
     },
-    bands: ({ bandsIds }, __, { dataSources }) => {
+    bands: ({ bandsIds }: IAlbum, __, { dataSources }) => {
       return getFromIdsArray(bandsIds, dataSources.bandAPI, 'getBand');
     },
-    tracks: ({ trackIds }, __, { dataSources }) => {
+    tracks: ({ trackIds }: IAlbum, __, { dataSources }) => {
       return getFromIdsArray(trackIds, dataSources.trackAPI, 'getTrack');
     },
-    genres: ({ genresIds }, __, { dataSources }) => {
+    genres: ({ genresIds }: IAlbum, __, { dataSources }) => {
       return getFromIdsArray(genresIds, dataSources.genreAPI, 'getGenre');
     },
   },

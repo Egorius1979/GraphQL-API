@@ -24,7 +24,7 @@ import { trackResolvers } from './modules/tracks/resolvers/track-resolvers';
 import { albumResolvers } from './modules/albums/resolvers/album-resolvers';
 import { favouriteResolvers } from './modules/favourites/resolvers/favourites-resolvers';
 
-export const typeDefs: DocumentNode[] = [user, artist, band, genre, favourites, album, track];
+export const typeDefs: DocumentNode[] = [user, artist, band, track, genre, album, favourites];
 
 export const resolvers = merge(
   {},

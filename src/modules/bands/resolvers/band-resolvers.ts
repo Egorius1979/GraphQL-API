@@ -1,19 +1,34 @@
+import {
+  transform,
+  getFromIdsArray,
+  deleteMessage,
+  setMembers,
+  setQuery,
+} from '../../../common-handlers';
 import { IBand } from '../services/band-type';
-import { transform, getFromIdsArray, deleteMessage } from '../../../common-handlers';
 
 export const bandResolvers = {
   Query: {
-    band: async (_, { id }, { dataSources }): Promise<IBand> => {
+    band: async (_, { id }: IBand, { dataSources }): Promise<IBand> => {
       const res = await dataSources.bandAPI.getBand(id);
       return transform(res);
     },
-    bands: async (_, __, { dataSources }): Promise<IBand[]> => {
-      const { items: res } = await dataSources.bandAPI.getAllBands();
-      return res.map((it: IBand) => transform(it));
+    bands: async (_, { offset, limit }, { dataSources }) => {
+      try {
+        const query = setQuery(offset, limit);
+        const { items } = await dataSources.bandAPI.getAllBands(query);
+        return items.map((it: IBand) => transform(it));
+      } catch {}
     },
   },
   Band: {
-    genres: ({ genresIds }, __, { dataSources }) => {
+    members: async (parent, __, { dataSources }) => {
+      const { members } = parent;
+      const artistsIds = members.map((it) => it.artistId);
+      const artists = await getFromIdsArray(artistsIds, dataSources.artistAPI, 'getArtist');
+      return setMembers(members, artists);
+    },
+    genres: ({ genresIds }: IBand, __, { dataSources }) => {
       return getFromIdsArray(genresIds, dataSources.genreAPI, 'getGenre');
     },
   },

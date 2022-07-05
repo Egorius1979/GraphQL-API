@@ -13,8 +13,8 @@ export const track: DocumentNode = gql`
   }
 
   type Query {
-    tracks: [Track]
     track(id: ID!): Track
+    tracks(offset: Int, limit: Int): [Track]
   }
 
   type Mutation {

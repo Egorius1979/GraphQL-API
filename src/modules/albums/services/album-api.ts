@@ -12,8 +12,8 @@ export class AlbumAPI extends RESTDataSource {
   async getAlbum(albumId: string) {
     return this.get(`/${albumId}`);
   }
-  async getAllAlbums() {
-    return this.get('');
+  async getAllAlbums(query) {
+    return this.get('', query);
   }
   async createAlbum(album: IAlbum) {
     return this.post('', album);

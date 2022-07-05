@@ -12,20 +12,23 @@ export const band: DocumentNode = gql`
   }
 
   type Member {
-    artist: String
+    id: ID!
+    firstName: String
+    secondName: String
+    middleName: String
+    instrument: String
+    years: [String]
+  }
+
+  input MemberInput {
+    artistId: ID!
     instrument: String
     years: [String]
   }
 
   type Query {
-    bands: [Band]
     band(id: ID!): Band
-  }
-
-  input MemberInput {
-    artist: String
-    instrument: String
-    years: [String]
+    bands(offset: Int, limit: Int): [Band]
   }
 
   type Mutation {

@@ -12,8 +12,8 @@ export class TrackAPI extends RESTDataSource {
   async getTrack(trackId: string) {
     return this.get(`/${trackId}`);
   }
-  async getAllTracks() {
-    return this.get('');
+  async getAllTracks(query) {
+    return this.get('', query);
   }
   async createTrack(track: ITrack) {
     return this.post('', track);

@@ -1,25 +1,28 @@
+import { transform, getFromIdsArray, deleteMessage, setQuery } from '../../../common-handlers';
 import { ITrack } from '../services/track-type';
-import { transform, getFromIdsArray, deleteMessage } from '../../../common-handlers';
 
 export const trackResolvers = {
   Query: {
-    track: async (_, { id }, { dataSources }): Promise<ITrack> => {
+    track: async (_, { id }: ITrack, { dataSources }): Promise<ITrack> => {
       const res = await dataSources.trackAPI.getTrack(id);
       return transform(res);
     },
-    tracks: async (_, __, { dataSources }): Promise<ITrack[]> => {
-      const { items: res } = await dataSources.trackAPI.getAllTracks();
-      return res.map((it: ITrack) => transform(it));
+    tracks: async (_, { offset, limit }, { dataSources }): Promise<ITrack[]> => {
+      try {
+        const query = setQuery(offset, limit);
+        const { items: res } = await dataSources.trackAPI.getAllTracks(query);
+        return res.map((it: ITrack) => transform(it));
+      } catch {}
     },
   },
   Track: {
-    albums: ({ albumId }, __, { dataSources }) => {
+    albums: ({ albumId }: ITrack, __, { dataSources }) => {
       return getFromIdsArray([albumId], dataSources.albumAPI, 'getAlbum');
     },
-    bands: ({ bandsIds }, __, { dataSources }) => {
+    bands: ({ bandsIds }: ITrack, __, { dataSources }) => {
       return getFromIdsArray(bandsIds, dataSources.bandAPI, 'getBand');
     },
-    genres: ({ genresIds }, __, { dataSources }) => {
+    genres: ({ genresIds }: ITrack, __, { dataSources }) => {
       return getFromIdsArray(genresIds, dataSources.genreAPI, 'getGenre');
     },
   },

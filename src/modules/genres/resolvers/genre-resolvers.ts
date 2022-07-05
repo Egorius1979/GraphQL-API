@@ -1,15 +1,18 @@
+import { transform, deleteMessage, setQuery } from '../../../common-handlers';
 import { IGenre } from '../services/genre-type';
-import { transform, deleteMessage } from '../../../common-handlers';
 
 export const genreResolvers = {
   Query: {
-    genre: async (_, { id }, { dataSources }): Promise<IGenre> => {
+    genre: async (_, { id }: IGenre, { dataSources }): Promise<IGenre> => {
       const res = await dataSources.genreAPI.getGenre(id);
       return transform(res);
     },
-    genres: async (_, __, { dataSources }): Promise<IGenre[]> => {
-      const { items: res } = await dataSources.genreAPI.getAllGenres();
-      return res.map((it: IGenre) => transform(it));
+    genres: async (_, { offset, limit }, { dataSources }): Promise<IGenre[]> => {
+      try {
+        const query = setQuery(offset, limit);
+        const { items: res } = await dataSources.genreAPI.getAllGenres(query);
+        return res.map((it: IGenre) => transform(it));
+      } catch {}
     },
   },
   Mutation: {

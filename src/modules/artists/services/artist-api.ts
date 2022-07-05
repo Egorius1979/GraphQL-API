@@ -12,8 +12,8 @@ export class ArtistAPI extends RESTDataSource {
   async getArtist(artistId: string) {
     return this.get(`/${artistId}`);
   }
-  async getAllArtists() {
-    return this.get('');
+  async getAllArtists(query) {
+    return this.get('', query);
   }
   async createArtist(artist: IArtist) {
     return this.post('', artist);

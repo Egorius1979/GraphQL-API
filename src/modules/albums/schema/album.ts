@@ -14,8 +14,8 @@ export const album: DocumentNode = gql`
   }
 
   type Query {
-    albums: [Album]
     album(id: ID!): Album
+    albums(offset: Int, limit: Int): [Album]
   }
 
   type Mutation {

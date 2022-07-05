@@ -2,7 +2,13 @@ export interface IBand {
   id: string;
   name: string;
   origin: string;
-  members: string[];
+  membersId: IMember[];
   website: string;
-  genres: string[];
+  genresIds: string[];
+}
+
+interface IMember {
+  artistId: string;
+  instrument: String;
+  years: [String];
 }

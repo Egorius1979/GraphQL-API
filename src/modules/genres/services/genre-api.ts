@@ -12,8 +12,8 @@ export class GenreAPI extends RESTDataSource {
   async getGenre(genreId: string) {
     return this.get(`/${genreId}`);
   }
-  async getAllGenres() {
-    return this.get('');
+  async getAllGenres(query) {
+    return this.get('', query);
   }
   async createGenre(genre: IGenre) {
     return this.post('', genre);

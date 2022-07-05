@@ -12,7 +12,7 @@ export const genre: DocumentNode = gql`
 
   type Query {
     genre(id: ID!): Genre
-    genres: [Genre]
+    genres(offset: Int, limit: Int): [Genre]
   }
 
   type Mutation {
