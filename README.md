@@ -31,9 +31,9 @@ when the microservices connect to the database and the graphql server is also ru
 http://localhost:4000/graphql
 ```
 
-You can execute all Query queries without authorization and authentication. All mutations (create, update, delete and add) can only be done by authorized users.
+You can execute all queries (_get-request_) without authorization and authentication. All mutations (_create, update, delete and add_) can only be done by authorized users.
 To do this, you need to register (**Mutation** => **_register_**), and then log in and get a token (**Query** => **_jwt_**) in the `Documentation` tab on the left.
-In the middle lower part of the screen, click the **Headers** tab, then click `+ New header`, select **_Authorization_** in the field `key header` and write word _Bearer_ in the `value` field with a space at the end and put the value of the previously received **_jwt-token_** there.
+In the middle lower part of the screen, click the **Headers** tab, then click `+ New header`, select **_Authorization_** in the field `key header` and write word _**Bearer**_ with a space at the end in the `value` field and put the value of the previously received **_jwt-token_** there.
 
 _Now you can use all the other mutations from the list._
 
