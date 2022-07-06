@@ -1,4 +1,4 @@
-# Graphql API
+# GraphQL API
 
 This application is a handy graphql API for six microservices that allows you to create an intuitive query and get a response expanded across all nesting fields in one single response.
 **Simple, convenient, visual.**
@@ -21,7 +21,7 @@ This application is a handy graphql API for six microservices that allows you to
 
 5. Start microservices from the microservices repository: **`npm run run:all:dev`** or **`npm run run:all:prod`**
 
-6. Start **_Graphql API_** app from its repository: **`npm run dev`** or **`npm run prod`**
+6. Start **_GraphQL API_** app from its repository: **`npm run dev`** or **`npm run prod`**
 
 ## How to use
 
