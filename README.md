@@ -1,4 +1,4 @@
-### Graphql API
+# Graphql API
 
 This application is a handy graphql API for six microservices that allows you to create an intuitive query and get a response expanded across all nesting fields in one single response.
 **Simple, convenient, visual.**
