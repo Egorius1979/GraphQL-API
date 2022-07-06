@@ -12,7 +12,7 @@ export class BandAPI extends RESTDataSource {
   async getBand(bandId: string) {
     return this.get(`/${bandId}`);
   }
-  async getAllBands(query) {
+  async getAllBands(query: URLSearchParams) {
     return this.get('', query);
   }
   async createBand(band: IBand) {

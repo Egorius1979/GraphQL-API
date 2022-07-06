@@ -8,11 +8,9 @@ export const albumResolvers = {
       return transform(res);
     },
     albums: async (_, { offset, limit }, { dataSources }): Promise<IAlbum[]> => {
-      try {
-        const query = setQuery(offset, limit);
-        const { items } = await dataSources.albumAPI.getAllAlbums(query);
-        return items.map((it: IAlbum) => transform(it));
-      } catch {}
+      const query = setQuery(offset, limit);
+      const { items } = await dataSources.albumAPI.getAllAlbums(query);
+      return items.map((it: IAlbum) => transform(it));
     },
   },
   Album: {

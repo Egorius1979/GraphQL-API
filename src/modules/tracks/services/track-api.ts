@@ -12,7 +12,7 @@ export class TrackAPI extends RESTDataSource {
   async getTrack(trackId: string) {
     return this.get(`/${trackId}`);
   }
-  async getAllTracks(query) {
+  async getAllTracks(query: URLSearchParams) {
     return this.get('', query);
   }
   async createTrack(track: ITrack) {

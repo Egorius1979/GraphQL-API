@@ -8,11 +8,9 @@ export const genreResolvers = {
       return transform(res);
     },
     genres: async (_, { offset, limit }, { dataSources }): Promise<IGenre[]> => {
-      try {
-        const query = setQuery(offset, limit);
-        const { items: res } = await dataSources.genreAPI.getAllGenres(query);
-        return res.map((it: IGenre) => transform(it));
-      } catch {}
+      const query = setQuery(offset, limit);
+      const { items: res } = await dataSources.genreAPI.getAllGenres(query);
+      return res.map((it: IGenre) => transform(it));
     },
   },
   Mutation: {

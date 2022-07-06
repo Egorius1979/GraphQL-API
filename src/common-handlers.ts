@@ -1,11 +1,9 @@
 export const transform = (item) => {
-  try {
-    if (!item) throw Error;
+  if (item) {
     item.id = item._id;
-    return item;
-  } catch {
-    console.log('объект отсутствует в БД');
   }
+
+  return item || null;
 };
 
 export const getFromIdsArray = async (idsArray: string[] | [], api, getItem: string) => {
@@ -36,11 +34,24 @@ export const setMembers = (members, artists) => {
   return result;
 };
 
-export const setQuery = (offset, limit) => {
-  return offset || limit ? { offset, limit } : null;
+export const setQuery = (offset: number, limit: number): IQuery => {
+  if (offset && limit) {
+    return { offset, limit };
+  }
+  if (offset) {
+    return { offset };
+  }
+  if (limit) {
+    return { limit };
+  }
 };
 
 export const deleteMessage = {
   acknowledged: true,
   deletedCount: 1,
 };
+
+export interface IQuery {
+  offset?: number;
+  limit?: number;
+}

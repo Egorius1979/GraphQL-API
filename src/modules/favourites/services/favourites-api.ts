@@ -9,7 +9,6 @@ export class FavouriteAPI extends RESTDataSource {
   willSendRequest(request: RequestOptions) {
     request.headers.set('Authorization', `Bearer ${this.context.token}`);
   }
-
   async getFavourites() {
     return this.get('');
   }

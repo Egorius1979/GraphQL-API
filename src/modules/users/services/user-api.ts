@@ -7,7 +7,7 @@ export class UserAPI extends RESTDataSource {
     this.baseURL = process.env.USERS_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${process.env.AUTH_TOKEN}`);
+    request.headers.set('Authorization', `Bearer ${this.context.token}`);
   }
   async regUser(newUser: IUser) {
     return this.post('/register', newUser);

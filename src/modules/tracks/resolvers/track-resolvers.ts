@@ -8,11 +8,9 @@ export const trackResolvers = {
       return transform(res);
     },
     tracks: async (_, { offset, limit }, { dataSources }): Promise<ITrack[]> => {
-      try {
-        const query = setQuery(offset, limit);
-        const { items: res } = await dataSources.trackAPI.getAllTracks(query);
-        return res.map((it: ITrack) => transform(it));
-      } catch {}
+      const query = setQuery(offset, limit);
+      const { items: res } = await dataSources.trackAPI.getAllTracks(query);
+      return res.map((it: ITrack) => transform(it));
     },
   },
   Track: {

@@ -8,11 +8,9 @@ export const artistResolvers = {
       return transform(res);
     },
     artists: async (_, { offset, limit }, { dataSources }) => {
-      try {
-        const query = setQuery(offset, limit);
-        const { items } = await dataSources.artistAPI.getAllArtists(query);
-        return items.map((it: IArtist) => transform(it));
-      } catch {}
+      const query = setQuery(offset, limit);
+      const { items } = await dataSources.artistAPI.getAllArtists(query);
+      return items.map((it: IArtist) => transform(it));
     },
   },
   Artist: {

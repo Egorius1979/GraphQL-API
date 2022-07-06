@@ -3,8 +3,8 @@ import { IBody, IFavourite } from '../services/favourites-type';
 
 export const favouriteResolvers = {
   Query: {
-    favorites: async (_, __, { dataSources }): Promise<IFavourite[]> => {
-      const { items: res } = await dataSources.favouriteAPI.getFavourites();
+    favourites: async (_, __, { dataSources }): Promise<IFavourite[]> => {
+      const res = await dataSources.favouriteAPI.getFavourites();
       return transform(res);
     },
   },

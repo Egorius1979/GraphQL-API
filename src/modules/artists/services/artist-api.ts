@@ -12,7 +12,7 @@ export class ArtistAPI extends RESTDataSource {
   async getArtist(artistId: string) {
     return this.get(`/${artistId}`);
   }
-  async getAllArtists(query) {
+  async getAllArtists(query: URLSearchParams) {
     return this.get('', query);
   }
   async createArtist(artist: IArtist) {

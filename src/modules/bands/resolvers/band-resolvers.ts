@@ -14,11 +14,9 @@ export const bandResolvers = {
       return transform(res);
     },
     bands: async (_, { offset, limit }, { dataSources }) => {
-      try {
-        const query = setQuery(offset, limit);
-        const { items } = await dataSources.bandAPI.getAllBands(query);
-        return items.map((it: IBand) => transform(it));
-      } catch {}
+      const query = setQuery(offset, limit);
+      const { items } = await dataSources.bandAPI.getAllBands(query);
+      return items.map((it: IBand) => transform(it));
     },
   },
   Band: {

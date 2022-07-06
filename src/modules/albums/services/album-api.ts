@@ -12,7 +12,7 @@ export class AlbumAPI extends RESTDataSource {
   async getAlbum(albumId: string) {
     return this.get(`/${albumId}`);
   }
-  async getAllAlbums(query) {
+  async getAllAlbums(query: URLSearchParams) {
     return this.get('', query);
   }
   async createAlbum(album: IAlbum) {

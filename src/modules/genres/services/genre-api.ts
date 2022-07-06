@@ -12,7 +12,7 @@ export class GenreAPI extends RESTDataSource {
   async getGenre(genreId: string) {
     return this.get(`/${genreId}`);
   }
-  async getAllGenres(query) {
+  async getAllGenres(query: URLSearchParams) {
     return this.get('', query);
   }
   async createGenre(genre: IGenre) {

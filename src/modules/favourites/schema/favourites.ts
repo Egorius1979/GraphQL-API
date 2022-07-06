@@ -12,7 +12,7 @@ export const favourites: DocumentNode = gql`
   }
 
   type Query {
-    favorites: Favourites
+    favourites: Favourites
   }
 
   type Mutation {
