@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IGenre } from './genre-type';
+import { IGenre } from '../genre-type';
 
 export class GenreAPI extends RESTDataSource {
   constructor() {
@@ -7,7 +7,7 @@ export class GenreAPI extends RESTDataSource {
     this.baseURL = process.env.GENRES_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', this.context.token);
   }
   async getGenre(genreId: string) {
     return this.get(`/${genreId}`);

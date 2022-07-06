@@ -1,5 +1,5 @@
 import { transform, getFromIdsArray, deleteMessage, setQuery } from '../../../common-handlers';
-import { IAlbum } from '../services/album-type';
+import { IAlbum } from '../album-type';
 
 export const albumResolvers = {
   Query: {

@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IArtist } from './artist-type';
+import { IArtist } from '../artist-type';
 
 export class ArtistAPI extends RESTDataSource {
   constructor() {
@@ -7,7 +7,7 @@ export class ArtistAPI extends RESTDataSource {
     this.baseURL = process.env.ARTISTS_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', this.context.token);
   }
   async getArtist(artistId: string) {
     return this.get(`/${artistId}`);

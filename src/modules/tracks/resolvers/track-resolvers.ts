@@ -1,5 +1,5 @@
 import { transform, getFromIdsArray, deleteMessage, setQuery } from '../../../common-handlers';
-import { ITrack } from '../services/track-type';
+import { ITrack } from '../track-type';
 
 export const trackResolvers = {
   Query: {

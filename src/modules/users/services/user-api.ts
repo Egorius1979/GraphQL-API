@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IUser } from './user-type';
+import { IUser } from '../user-type';
 
 export class UserAPI extends RESTDataSource {
   constructor() {
@@ -7,7 +7,7 @@ export class UserAPI extends RESTDataSource {
     this.baseURL = process.env.USERS_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', this.context.token);
   }
   async regUser(newUser: IUser) {
     return this.post('/register', newUser);

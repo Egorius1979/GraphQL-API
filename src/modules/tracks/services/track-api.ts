@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { ITrack } from './track-type';
+import { ITrack } from '../track-type';
 
 export class TrackAPI extends RESTDataSource {
   constructor() {
@@ -7,7 +7,7 @@ export class TrackAPI extends RESTDataSource {
     this.baseURL = process.env.TRACKS_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', this.context.token);
   }
   async getTrack(trackId: string) {
     return this.get(`/${trackId}`);

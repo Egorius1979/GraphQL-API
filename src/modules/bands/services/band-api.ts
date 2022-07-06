@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IBand } from './band-type';
+import { IBand } from '../band-type';
 
 export class BandAPI extends RESTDataSource {
   constructor() {
@@ -7,7 +7,7 @@ export class BandAPI extends RESTDataSource {
     this.baseURL = process.env.BANDS_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', this.context.token);
   }
   async getBand(bandId: string) {
     return this.get(`/${bandId}`);

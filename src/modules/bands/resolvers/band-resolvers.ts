@@ -5,7 +5,7 @@ import {
   setMembers,
   setQuery,
 } from '../../../common-handlers';
-import { IBand } from '../services/band-type';
+import { IBand } from '../band-type';
 
 export const bandResolvers = {
   Query: {

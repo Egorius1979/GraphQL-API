@@ -1,5 +1,5 @@
 import { transform, deleteMessage, setQuery } from '../../../common-handlers';
-import { IGenre } from '../services/genre-type';
+import { IGenre } from '../genre-type';
 
 export const genreResolvers = {
   Query: {

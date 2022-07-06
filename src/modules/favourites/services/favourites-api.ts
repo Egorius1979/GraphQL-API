@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IBody } from './favourites-type';
+import { IBody } from '../favourites-type';
 
 export class FavouriteAPI extends RESTDataSource {
   constructor() {
@@ -7,7 +7,7 @@ export class FavouriteAPI extends RESTDataSource {
     this.baseURL = process.env.FAVOURITES_URL;
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', `Bearer ${this.context.token}`);
+    request.headers.set('Authorization', this.context.token);
   }
   async getFavourites() {
     return this.get('');

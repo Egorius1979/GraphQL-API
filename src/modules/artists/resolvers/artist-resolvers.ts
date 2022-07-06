@@ -1,5 +1,5 @@
 import { getFromIdsArray, transform, deleteMessage, setQuery } from '../../../common-handlers';
-import { IArtist } from '../services/artist-type';
+import { IArtist } from '../artist-type';
 
 export const artistResolvers = {
   Query: {

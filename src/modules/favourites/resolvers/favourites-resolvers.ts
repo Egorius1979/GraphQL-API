@@ -1,5 +1,5 @@
 import { transform, getFromIdsArray } from '../../../common-handlers';
-import { IBody, IFavourite } from '../services/favourites-type';
+import { IBody, IFavourite } from '../favourites-type';
 
 export const favouriteResolvers = {
   Query: {
