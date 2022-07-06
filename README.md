@@ -21,7 +21,7 @@ This application is a handy graphql API for six microservices that allows you to
 
 5. Start microservices from the microservices repository: **`npm run run:all:dev`** or **`npm run run:all:prod`**
 
-6. Start **_Graphql Server api_** app from its repository: **`npm run dev`** or **`npm run prod`**
+6. Start **_Graphql Server API_** app from its repository: **`npm run dev`** or **`npm run prod`**
 
 ## How to use
 
