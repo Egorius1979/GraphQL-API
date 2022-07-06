@@ -1,4 +1,4 @@
-### Graphql Server
+### Graphql API
 
 This application is a handy graphql API for six microservices that allows you to create an intuitive query and get a response expanded across all nesting fields in one single response.
 **Simple, convenient, visual.**
@@ -21,7 +21,7 @@ This application is a handy graphql API for six microservices that allows you to
 
 5. Start microservices from the microservices repository: **`npm run run:all:dev`** or **`npm run run:all:prod`**
 
-6. Start **_Graphql Server API_** app from its repository: **`npm run dev`** or **`npm run prod`**
+6. Start **_Graphql API_** app from its repository: **`npm run dev`** or **`npm run prod`**
 
 ## How to use
 
@@ -31,7 +31,7 @@ when the microservices connect to the database and the graphql server is also ru
 http://localhost:4000/graphql
 ```
 
-You can execute all queries (_get-request_) without authorization and authentication. All mutations (_create, update, delete and add_) can only be done by authorized users.
+You can execute all **Queries** (_get-request_) without authorization and authentication. All **Mutations** (_create, update, delete and add_) can only be done by authorized users.
 To do this, you need to register (**Mutation** => **_register_**), and then log in and get a token (**Query** => **_jwt_**) in the `Documentation` tab on the left.
 In the middle lower part of the screen, click the **Headers** tab, then click `+ New header`, select **_Authorization_** in the field `key header` and write word _**Bearer**_ with a space at the end in the `value` field and put the value of the previously received **_jwt-token_** there.
 
