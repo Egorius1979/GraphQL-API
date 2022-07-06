@@ -19,14 +19,15 @@ export const getFromIdsArray = async (idsArray: string[] | [], api, getItem: str
 export const setMembers = (members, artists) => {
   const result = artists
     ? artists.reduce((acc, rec) => {
-        const member = members.find((it) => it.artistId === rec.id);
+        const { instrument, years } = members.find((it) => it.artistId === rec.id);
+        const { id, firstName, secondName, middleName } = rec;
         const resultMember = {
-          id: rec.id,
-          firstName: rec.firstName,
-          secondName: rec.secondName,
-          middleName: rec.middleName,
-          instrument: member.instrument,
-          years: member.years,
+          id,
+          firstName,
+          secondName,
+          middleName,
+          instrument,
+          years,
         };
         return [...acc, resultMember];
       }, [])
