@@ -9,19 +9,20 @@ This application is a handy graphql API for six microservices that allows you to
 
 - the installation instructions are inside
 
+- the application is using MongoDB as a database. Feel free to choose any solution for it, however it's highle recommended to use Docker and the official image for it.
+  [Docker MongoDB](https://hub.docker.com/_/mongo)
+
 2. Clone this repo
+
+- copy and rename env.example to .env
 
 - `npm install` or you can use [yarn](https://yarnpkg.com/getting-started/install)
 
-3. The application is using MongoDB as a database. Feel free to choose any solution for it, however it's highle recommended to use Docker and the official image for it.
+3. Сonfigure the connection of microservices to the Database by making the necessary changes in the .env files of microservices
 
-[Docker MongoDB](https://hub.docker.com/_/mongo)
+4. Start microservices from the microservices repository: **`npm run run:all:dev`** or **`npm run run:all:prod`**
 
-4. Сonfigure the connection of microservices to the Database by making the necessary changes in the .env files of microservices
-
-5. Start microservices from the microservices repository: **`npm run run:all:dev`** or **`npm run run:all:prod`**
-
-6. Start **_GraphQL API_** app from its repository: **`npm run dev`** or **`npm run prod`**
+5. Start **_GraphQL API_** app from its repository: **`npm run dev`** or **`npm run prod`**
 
 ## How to use
 
