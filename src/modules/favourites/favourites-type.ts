@@ -6,8 +6,3 @@ export interface IFavourite {
   artistsIds: string[];
   tracksIds: string[];
 }
-
-export interface IBody {
-  type: string;
-  id: string;
-}

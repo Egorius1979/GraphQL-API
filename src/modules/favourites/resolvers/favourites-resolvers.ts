@@ -1,5 +1,5 @@
 import { transform, getFromIdsArray } from '../../../common-handlers';
-import { IBody, IFavourite } from '../favourites-type';
+import { IFavourite } from '../favourites-type';
 
 export const favouriteResolvers = {
   Query: {
@@ -23,20 +23,20 @@ export const favouriteResolvers = {
     },
   },
   Mutation: {
-    addTrackToFavourites: async (_, track: IBody, { dataSources }): Promise<IFavourite> => {
-      const res = await dataSources.favouriteAPI.addFavourite(track);
+    addTrackToFavourites: async (_, id: object, { dataSources }): Promise<IFavourite> => {
+      const res = await dataSources.favouriteAPI.addFavourite({ type: 'tracks', ...id });
       return transform(res);
     },
-    addBandToFavourites: async (_, band: IBody, { dataSources }): Promise<IFavourite> => {
-      const res = await dataSources.favouriteAPI.addFavourite(band);
+    addBandToFavourites: async (_, id: object, { dataSources }): Promise<IFavourite> => {
+      const res = await dataSources.favouriteAPI.addFavourite({ type: 'bands', ...id });
       return transform(res);
     },
-    addArtistToFavourites: async (_, artist: IBody, { dataSources }): Promise<IFavourite> => {
-      const res = await dataSources.favouriteAPI.addFavourite(artist);
+    addArtistToFavourites: async (_, id: object, { dataSources }): Promise<IFavourite> => {
+      const res = await dataSources.favouriteAPI.addFavourite({ type: 'artists', ...id });
       return transform(res);
     },
-    addGenreToFavourites: async (_, genre: IBody, { dataSources }): Promise<IFavourite> => {
-      const res = await dataSources.favouriteAPI.addFavourite(genre);
+    addGenreToFavourites: async (_, id: object, { dataSources }): Promise<IFavourite> => {
+      const res = await dataSources.favouriteAPI.addFavourite({ type: 'genres', ...id });
       return transform(res);
     },
   },

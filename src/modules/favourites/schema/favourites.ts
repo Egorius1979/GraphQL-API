@@ -16,12 +16,12 @@ export const favourites: DocumentNode = gql`
   }
 
   type Mutation {
-    addTrackToFavourites(type: String!, id: ID!): Favourites!
+    addTrackToFavourites(id: ID!): Favourites!
 
-    addBandToFavourites(type: String!, id: ID!): Favourites!
+    addBandToFavourites(id: ID!): Favourites!
 
-    addArtistToFavourites(type: String!, id: ID!): Favourites!
+    addArtistToFavourites(id: ID!): Favourites!
 
-    addGenreToFavourites(type: String!, id: ID!): Favourites!
+    addGenreToFavourites(id: ID!): Favourites!
   }
 `;

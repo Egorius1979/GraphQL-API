@@ -1,5 +1,4 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IBody } from '../favourites-type';
 
 export class FavouriteAPI extends RESTDataSource {
   constructor() {
@@ -12,7 +11,7 @@ export class FavouriteAPI extends RESTDataSource {
   async getFavourites() {
     return this.get('');
   }
-  async addFavourite(body: IBody) {
-    return this.put('/add', body);
+  async addFavourite(id: string) {
+    return this.put('/add', id);
   }
 }
