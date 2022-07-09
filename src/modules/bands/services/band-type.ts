@@ -1,3 +1,5 @@
+export { IGenre } from '../../genres/services/genre-type';
+
 export interface IBand {
   id: string;
   name: string;
@@ -12,3 +14,12 @@ interface IMember {
   instrument: String;
   years: [String];
 }
+
+export type Band = {
+  id: number;
+  name: string;
+  origin: string;
+  members: object[];
+  website: string;
+  genres: object[];
+};

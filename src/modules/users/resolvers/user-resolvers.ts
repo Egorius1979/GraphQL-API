@@ -1,5 +1,5 @@
 import { transform } from '../../../common-handlers';
-import { IUser } from '../user-type';
+import { IUser } from '../services/user-type';
 
 export const userResolvers = {
   Query: {

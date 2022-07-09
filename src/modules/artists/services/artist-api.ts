@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IArtist } from '../artist-type';
+import { IArtist } from './artist-type';
 
 export class ArtistAPI extends RESTDataSource {
   constructor() {

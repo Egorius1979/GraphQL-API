@@ -11,7 +11,7 @@ export class FavouriteAPI extends RESTDataSource {
   async getFavourites() {
     return this.get('');
   }
-  async addFavourite(id: string) {
-    return this.put('/add', id);
+  async addFavourite(body: object) {
+    return this.put('/add', body);
   }
 }

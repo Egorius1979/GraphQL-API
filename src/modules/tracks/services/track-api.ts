@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { ITrack } from '../track-type';
+import { ITrack } from './track-type';
 
 export class TrackAPI extends RESTDataSource {
   constructor() {

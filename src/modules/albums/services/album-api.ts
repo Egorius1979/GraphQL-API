@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IAlbum } from '../album-type';
+import { IAlbum } from './album-type';
 
 export class AlbumAPI extends RESTDataSource {
   constructor() {

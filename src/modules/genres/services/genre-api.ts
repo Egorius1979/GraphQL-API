@@ -1,5 +1,5 @@
 import { RESTDataSource, RequestOptions } from 'apollo-datasource-rest';
-import { IGenre } from '../genre-type';
+import { IGenre } from './genre-type';
 
 export class GenreAPI extends RESTDataSource {
   constructor() {
