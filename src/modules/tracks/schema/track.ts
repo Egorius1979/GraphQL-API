@@ -5,7 +5,7 @@ export const track: DocumentNode = gql`
   type Track {
     id: ID!
     title: String!
-    albums: [Album]
+    album: Album
     bands: [Band]
     duration: Int
     released: Int

@@ -9,13 +9,14 @@ export const trackResolvers = {
     },
     tracks: async (_, { offset, limit }, { dataSources }): Promise<Track[]> => {
       const query = setQuery(offset, limit);
-      const { items: res } = await dataSources.trackAPI.getAllTracks(query);
-      return res.map((it: Track) => transform(it));
+      const { items } = await dataSources.trackAPI.getAllTracks(query);
+      return items.map((it: Track) => transform(it));
     },
   },
   Track: {
-    albums: ({ albumId }: ITrack, __, { dataSources }): Promise<Album[]> => {
-      return getFromIdsArray([albumId], dataSources.albumAPI, 'getAlbum');
+    album: async ({ albumId }: ITrack, __, { dataSources }): Promise<Album> => {
+      const res = await dataSources.albumAPI.getAlbum(albumId);
+      return transform(res);
     },
     bands: ({ bandsIds }: ITrack, __, { dataSources }): Promise<Band[]> => {
       return getFromIdsArray(bandsIds, dataSources.bandAPI, 'getBand');
